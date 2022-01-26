@@ -53,7 +53,7 @@ class HomePage extends React.Component {
                         })}
                     </Carousel>
                     <div style={styles.sectProducts}>
-                        <h1 className='product' >Our Bags</h1>
+                        <h1 className="product" >Our Bags</h1>
                         <div style={styles.contProducts}>
                             {this.state.products.map((item, index) => {
                                 return (
