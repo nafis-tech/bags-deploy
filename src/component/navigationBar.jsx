@@ -24,8 +24,8 @@ class NavigationBar extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link as={Link} to="/" style={styles.navLink}>Home</Nav.Link>
-                        <Nav.Link href='./product' style={styles.navLink}>Product</Nav.Link>
-                        <Nav.Link href='#home' style={styles.navLink}>Contact Us</Nav.Link>
+                        <Nav.Link href="#ourproduct" style={styles.navLink}>Product</Nav.Link>
+                        <Nav.Link href="#contactus" style={styles.navLink}>Contact Us</Nav.Link>
                     </Nav>
                     {this.props.role === 'user'
                     ?

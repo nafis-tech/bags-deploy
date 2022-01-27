@@ -52,7 +52,7 @@ class HomePage extends React.Component {
                             )
                         })}
                     </Carousel>
-                    <div style={styles.sectProducts}>
+                    <div id="ourproduct" style={styles.sectProducts}>
                         <h1 className="product" >Our Bags</h1>
                         <div style={styles.contProducts}>
                             {this.state.products.map((item, index) => {
@@ -79,8 +79,8 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div style={styles.sectContact}>
-                    <h1>Contact Us</h1>
+                <div id="contactus" style={styles.sectContact}>
+                    <h1  >Contact Us</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos inventore, fugit magni non molestiae ea id earum veritatis iusto magnam expedita enim consequuntur voluptates ratione et explicabo? Vel, nulla consectetur?</p>
                     <div style={styles.contItem}>
                         <a style={{padding: '10px'}} href="http://wa.me/6285731040552"><i class="fab fa-whatsapp"></i> WhatsApp</a>
