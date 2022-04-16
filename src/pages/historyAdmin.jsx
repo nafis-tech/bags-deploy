@@ -10,6 +10,13 @@ import {
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
+
+const devEnv = process.env.NODE_ENV !== "production";
+const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+
+// `http://localhost:2000/
+
 class HistoryAdmin extends React.Component{
     constructor(props) {
         super(props)
@@ -18,7 +25,7 @@ class HistoryAdmin extends React.Component{
         }
     }
     componentDidMount () {
-        Axios.get(`http://localhost:2000/history`)
+        Axios.get(`${api}history`)
             .then(res => {
                 this.setState({ allHistory: res.data })
             })

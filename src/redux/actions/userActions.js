@@ -1,8 +1,14 @@
 import Axios from "axios";
 
+const devEnv = process.env.NODE_ENV !== "production";
+const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+
+// `http://localhost:2000/
+
 export const login = (username, password) => {
     return (dispatch) => {
-        Axios.get(`http://localhost:2000/users?username=${username}&password=${password}`)
+        Axios.get(`${api}users?username=${username}&password=${password}`)
             .then(res => {
                 console.log(res.data)
                 if (res.data.length === 0) {
@@ -44,7 +50,7 @@ export const logout = () => {
 
 export const keepLogin = (id) => {
     return (dispatch) => {
-        Axios.get(`http://localhost:2000/users/${id}`)
+        Axios.get(`${api}users/${id}`)
         .then(res => {
             return dispatch({
                 type: 'LOGIN',
@@ -58,7 +64,7 @@ export const keepLogin = (id) => {
 export const register = (username, email, data) => {
     return (dispatch) => {
         //cek kesamaan username di database
-        Axios.get(`http://localhost:2000/users?username=${username}`)
+        Axios.get(`${api}users?username=${username}`)
         .then(res => {
             if(res.data.length !== 0) {
                 return dispatch({
@@ -66,7 +72,7 @@ export const register = (username, email, data) => {
                 })
             }
             //cek kesamaan email di database
-            Axios.get(`http://localhost:2000/users?email=${email}`)
+            Axios.get(`${api}users?email=${email}`)
             .then(res => {
                 if(res.data.length !== 0) {
                     return dispatch({
@@ -74,7 +80,7 @@ export const register = (username, email, data) => {
                     })
                 }
                 //post data user baru
-                Axios.post(`http://localhost:2000/users`, data)
+                Axios.post(`${api}users`, data)
                 .then(res => {
                     if (res.data.length !== 0) {
                         return dispatch({

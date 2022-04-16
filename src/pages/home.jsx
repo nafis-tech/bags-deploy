@@ -8,6 +8,12 @@ import {
 import { Link } from 'react-router-dom'
 import NavigationBar from '../component/navigationBar'
 
+const devEnv = process.env.NODE_ENV !== "production";
+const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+
+// `http://localhost:2000
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props)
@@ -18,10 +24,10 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:2000/slider')
+        Axios.get(`${api}slider`)
             .then(res => {
                 this.setState({ carousels: res.data })
-                Axios.get('http://localhost:2000/products')
+                Axios.get(`${api}products`)
                     .then(res => {
                         this.setState({ products: res.data })
                     })

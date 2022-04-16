@@ -12,6 +12,7 @@ import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { getHistory } from '../redux/actions'
 
+
 class HistoryPage extends React.Component {
     componentDidMount (){
         this.props.getHistory()

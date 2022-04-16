@@ -10,6 +10,13 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { addCart } from '../redux/actions'
 
+
+const devEnv = process.env.NODE_ENV !== "production";
+const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+
+// `http://localhost:2000
+
 class DetailPage extends React.Component {
     constructor(props) {
         super(props)
@@ -22,7 +29,9 @@ class DetailPage extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get(`http://localhost:2000/products/${this.props.location.search.substring(1)}`)
+        // const devEnv = process.env.NODE_ENV !== "production";
+        // const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
+        Axios.get(`${api}products/${this.props.location.search.substring(1)}`)
             .then(res => {
                 this.setState({ product: res.data })
             })
