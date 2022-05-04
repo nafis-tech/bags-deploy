@@ -27,7 +27,7 @@ class HomePage extends React.Component {
         Axios.get(`${api}slider`)
             .then(res => {
                 this.setState({ carousels: res.data })
-                Axios.get(`${api}products`)
+                Axios.get(`https://fake-api-bag.herokuapp.com/products`)
                     .then(res => {
                         this.setState({ products: res.data })
                     })
