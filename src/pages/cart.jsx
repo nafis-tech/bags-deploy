@@ -12,6 +12,8 @@ import {
 } from 'react-bootstrap'
 import { delCart, saveCart, checkout } from '../redux/actions'
 
+
+//try to build
 class CartPage extends React.Component {
     constructor(props) {
         super(props)
