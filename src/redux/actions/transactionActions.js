@@ -2,7 +2,8 @@ import Axios from 'axios'
 
 const devEnv = process.env.NODE_ENV !== "production";
 const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
-const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+// const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+const api = `https://fake-api-bag.herokuapp.com/`
 
 // `http://localhost:2000/
 

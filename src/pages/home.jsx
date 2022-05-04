@@ -10,7 +10,8 @@ import NavigationBar from '../component/navigationBar'
 
 const devEnv = process.env.NODE_ENV !== "production";
 const {REACT_APP_DEV_URL, REACT_APP_PROD_URL} = process.env;
-const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+// const api = `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+const api = `https://fake-api-bag.herokuapp.com/`
 
 // `http://localhost:2000
 
@@ -27,7 +28,7 @@ class HomePage extends React.Component {
         Axios.get(`${api}slider`)
             .then(res => {
                 this.setState({ carousels: res.data })
-                Axios.get(`https://fake-api-bag.herokuapp.com/products`)
+                Axios.get(`${api}products`)
                     .then(res => {
                         this.setState({ products: res.data })
                     })
